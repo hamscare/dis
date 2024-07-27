@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجمع همس الرعاية الطبي - احصل على خصم</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e8f4f8;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin-top: 50px;
+        }
+        .title {
+            font-size: 28px;
+            color: #333;
+        }
+        .message {
+            font-size: 18px;
+            color: #555;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title text-center">مجمع همس الرعاية الطبي</div>
+        <div class="message text-center">
+            <p>تهانينا، لقد حصلت على خصم <span class="highlight" id="discountPercentage"></span>%!</p>
+            <p>اسمك: <span class="highlight" id="clientName"></span></p>
+            <p>لا تتردد بالتوجه مباشرة إلى المجمع وابراز الخصم لدى الاستقبال.</p>
+        </div>
+    </div>
+    <script>
+        function getRandomDiscount() {
+            return Math.floor(Math.random() * (20 - 10 + 1)) + 10;
+        }
+        function displayResult() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var name = urlParams.get('name');
+            var discount = getRandomDiscount();
+            document.getElementById('clientName').textContent = name;
+            document.getElementById('discountPercentage').textContent = discount;
+        }
+        displayResult();
+    </script>
+</body>
+</html>
